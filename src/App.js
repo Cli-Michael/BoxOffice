@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import logo from "./logo.svg";
+import "./App.css";
+import { Switch, Route } from "react-router-dom";
+import Nav from "./components/Nav";
+import Home from "./pages/Home";
+import Starred from "./pages/Starred";
 
 function App() {
   return (
-    <Switch>
+    <div>
+      <Nav /> 
 
-      <Route exact={true} path="/">
-        This is Home Page.
-      </Route>
+      <Switch>
+        <Route exact={true} path="/">
+          <Home />
+        </Route>
 
-      <Route exact path="/starred">
-        This is Starred Page.
-      </Route>
+        <Route exact path="/starred">
+          <Starred />
+        </Route>
 
-      <Route>
-        This is 404 Page.
-      </Route>
-
-    </Switch>
+        <Route>
+          <div>
+              Not Found Page
+          </div>
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
